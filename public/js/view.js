@@ -167,6 +167,7 @@ function ViewManager(mainViewContainer, webglScene, webglMainScene, renderer, gl
 
 
         var arcball_perspective = new ArcballControls( view.camera_perspective, view.container );
+        arcball_perspective.unsetMouseAction(0, 'CTRL');
         arcball_perspective.update();
         arcball_perspective.addEventListener( 'change', globalRenderFunc );
         //arcball_perspective.enabled = true;

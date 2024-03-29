@@ -933,7 +933,7 @@ function Editor(editorUi, wrapperUi, editorCfg, data, name="editor"){
             targetPos.z = 50;
 
         let pos = this.data.world.lidarPosToScene(targetPos);
-        this.viewManager.mainView.arcball.object.position.set(pos.x, pos.y, pos.z);  //object is camera
+        this.viewManager.mainView.arcball.camera.position.set(pos.x, pos.y, pos.z);
         this.viewManager.mainView.arcball.target.set(pos.x, pos.y, 0);
         this.viewManager.mainView.arcball.update(); 
         this.render();
