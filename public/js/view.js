@@ -170,6 +170,15 @@ function ViewManager(mainViewContainer, webglScene, webglMainScene, renderer, gl
         arcball_perspective.unsetMouseAction(0, 'CTRL');
         arcball_perspective.update();
         arcball_perspective.addEventListener( 'change', globalRenderFunc );
+        // disable rotate when ctrl, shift or meta key is pressed
+        document.addEventListener('keydown', e => {
+            if (e.ctrlKey || e.shiftKey || e.metaKey)
+                arcball_perspective.enableRotate = false;
+        })
+        document.addEventListener('keyup', e => {
+            if (!e.ctrlKey && !e.shiftKey && !e.metaKey)
+                arcball_perspective.enableRotate = true;
+        })
         //arcball_perspective.enabled = true;
         view.arcball_perspective = arcball_perspective;
 
