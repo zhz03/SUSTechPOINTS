@@ -1,8 +1,8 @@
 import * as THREE from './lib/three.module.js';
 import { ArcballControls } from './lib/ArcballControls.js';
-//import { OrthographicTrackballControls } from './lib/OrthographicTrackballControls.js';
+import { OrbitControls } from './lib/OrbitControls.js';
 import { TransformControls } from './lib/TransformControls.js';
-import {matmul2, euler_angle_to_rotate_matrix} from "./util.js"
+
 
 
 function ViewManager(mainViewContainer, webglScene, webglMainScene, renderer, globalRenderFunc, on_box_changed, cfg){
@@ -165,11 +165,15 @@ function ViewManager(mainViewContainer, webglScene, webglMainScene, renderer, gl
             this.renderer.render( this.scene, camera );
         };
 
-
-        var arcball_perspective = new ArcballControls( view.camera_perspective, view.container );
-        arcball_perspective.unsetMouseAction(0, 'CTRL');
+        if (pointsGlobalConfig.control === 'orbit') {
+            var arcball_perspective = new OrbitControls( view.camera_perspective, view.container );
+        } else {
+            var arcball_perspective = new ArcballControls( view.camera_perspective, view.container );
+            arcball_perspective.unsetMouseAction(0, 'CTRL');
+        }
         arcball_perspective.update();
         arcball_perspective.addEventListener( 'change', globalRenderFunc );
+
         // disable rotate when ctrl, shift or meta key is pressed
         document.addEventListener('keydown', e => {
             if (e.ctrlKey || e.shiftKey || e.metaKey)
@@ -198,110 +202,9 @@ function ViewManager(mainViewContainer, webglScene, webglMainScene, renderer, gl
 
 
 
-
-        var width = container.clientWidth;
-        var height = container.clientHeight;
-        var asp = width/height;
-
-        //camera = new THREE.OrthographicCamera(-800*asp, 800*asp, 800, -800, -800, 800);       
-        // camera.position.x = 0;
-        // camera.position.z = 0;
-        // camera.position.y = 0;
-        // camera.up.set( 1, 0, 0);
-        // camera.lookAt( 0, 0, -3 );
-
-        //camera = new THREE.OrthographicCamera( container.clientWidth / - 2, container.clientWidth / 2, container.clientHeight / 2, container.clientHeight / - 2, -400, 400 );
-        
-        // camera = new THREE.OrthographicCamera(-asp*200, asp*200, 200, -200, -200, 200 );
-        // camera.position.z = 50;
-        
-
-        // var cameraOrthoHelper = new THREE.CameraHelper( camera );
-        // cameraOrthoHelper.visible=true;
-        // scene.add( cameraOrthoHelper );
-
-        
-        //view.camera_orth = camera;
-
-        // var arcball_orth = new ArcballControls( view.camera_orth, view.container );
-        // arcball_orth.update();
-        // arcball_orth.addEventListener( 'change', render );
-        // arcball_orth.enabled = false;
-        // view.arcball_orth = arcball_orth;
-
-        // var arcball_orth = new OrthographicTrackballControls( view.camera_orth, view.container );
-        // arcball_orth.rotateSpeed = 1.0;
-        // arcball_orth.zoomSpeed = 1.2;
-        // arcball_orth.noZoom = false;
-        // arcball_orth.noPan = false;
-        // arcball_orth.noRotate = false;
-        // arcball_orth.staticMoving = true;
-        
-        // arcball_orth.dynamicDampingFactor = 0.3;
-        // arcball_orth.keys = [ 65, 83, 68 ];
-        // arcball_orth.addEventListener( 'change', globalRenderFunc );
-        // arcball_orth.enabled=true;
-        // view.arcball_orth = arcball_orth;
-        
-        // transform_control = new TransformControls(view.camera_orth, view.container );
-        // transform_control.setSpace("local");
-        // transform_control.addEventListener( 'change', globalRenderFunc );
-        // transform_control.addEventListener( 'objectChange', function(e){on_box_changed(e.target.object);} );
-        
-        
-        // transform_control.addEventListener( 'dragging-changed', function ( event ) {
-        //     view.arcball_orth.enabled = ! event.value;
-        // } );
-
-
-        // transform_control.visible = false;
-        // //transform_control.enabled = true;
-        // //scene.add( transform_control );
-        
-        // view.transform_control_orth = transform_control;
-
-
-
         view.camera = view.camera_perspective;
         view.arcball = view.arcball_perspective;
         view.transform_control = view.transform_control_perspective;
-
-
-        view.switch_camera = function(birdseye)        
-        {
-            
-            if (!birdseye && (this.camera === this.camera_orth)){
-                this.camera = this.camera_perspective;
-                this.arcball_orth.enabled=false;
-                this.arcball_perspective.enabled=true;
-                this.arcball = this.arcball_perspective;
-
-                
-                this.transform_control_perspective.detach();
-                this.transform_control_orth.detach();
-
-                this.transform_control_orth.enabled=false;
-                this.transform_control_perspective.enabled=true;
-                //this.transform_control_perspective.visible = false;
-                //this.transform_control_orth.visible = false;
-                this.transform_control = this.transform_control_perspective;
-            }
-            else if (birdseye && (this.camera === this.camera_perspective))
-            {
-                this.camera = this.camera_orth;
-                this.arcball_orth.enabled=true;
-                this.arcball_perspective.enabled=false;
-                this.arcball = this.arcball_orth;
-
-                this.transform_control_perspective.detach();
-                this.transform_control_orth.detach();
-                this.transform_control_orth.enabled=true;
-                this.transform_control_perspective.enabled=false;
-                this.transform_control = this.transform_control_orth;
-            }
-
-            this.camera.updateProjectionMatrix();
-        };
 
         view.reset_camera = function(){
             var camera = this.camera_perspective;
@@ -328,27 +231,12 @@ function ViewManager(mainViewContainer, webglScene, webglMainScene, renderer, gl
           
 
             var asp = container.clientWidth/container.clientHeight;
-            // this.camera_orth.left = -asp*200;
-            // this.camera_orth.right = asp*200;
-            // this.camera_orth.top = 200;
-            // this.camera_orth.bottom = -200
-            // this.camera_orth.updateProjectionMatrix();
-
-            // this.arcball_orth.handleResize();
-            // this.arcball_orth.update();
             
             this.camera_perspective.aspect = container.clientWidth / container.clientHeight;
             this.camera_perspective.updateProjectionMatrix();
             
         };
 
-        view.reset_birdseye = function(){
-            //this.arcball_orth.reset(); // 
-        };
-        view.rotate_birdseye = function(){
-            //this.camera_orth.up.set( 1, 0, 0);
-            //this.arcball_orth.update();
-        }
         view.detach_control = function(){
             this.transform_control.detach();
         }
