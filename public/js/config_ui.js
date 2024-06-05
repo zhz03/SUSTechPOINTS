@@ -178,13 +178,6 @@ class ConfigUi{
             this.editor.render();
         },
 
-        "#cfg-control-select": (event)=>{
-            let value = event.currentTarget.value;
-            pointsGlobalConfig.setItem("control", value);
-            // refresh
-            window.location.reload();
-        },
-
         "#cfg-data-aux-lidar-checkbox": (event)=>{
             let checked = event.currentTarget.checked;
 
@@ -323,8 +316,6 @@ class ConfigUi{
         this.menu.querySelector("#cfg-data-radar-checkbox").checked = pointsGlobalConfig.enableRadar;
         this.menu.querySelector("#cfg-color-points-select").value = pointsGlobalConfig.color_points;
         this.menu.querySelector("#cfg-coordinate-system-select").value = pointsGlobalConfig.coordinateSystem;
-        this.menu.querySelector("#cfg-control-select").value = pointsGlobalConfig.control;
-        console.log("CONTORL",pointsGlobalConfig);
         this.menu.querySelector("#cfg-batch-mode-inst-number").value = pointsGlobalConfig.batchModeInstNumber;
         this.menu.querySelector("#cfg-data-filter-points-checkbox").checked = pointsGlobalConfig.enableFilterPoints;
         this.menu.querySelector("#cfg-data-filter-points-z").value = pointsGlobalConfig.filterPointsZ;

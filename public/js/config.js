@@ -11,7 +11,6 @@ class Config{
     enableDynamicGroundLevel = true;
 
     coordinateSystem = 'utm';
-    control = 'orbit';
 
     point_size = 1;
     point_brightness = 0.6;
@@ -102,7 +101,6 @@ class Config{
         ["filterPointsZ", parseFloat],
         ["color_points", null],
         ["coordinateSystem", null],
-        ["control", null],
         ["batchModeInstNumber", parseInt],
         ["batchModeSubviewSize", JSON.parse],
         ["enableAutoRotateXY", this.toBool],
