@@ -10,13 +10,20 @@ class LabelChecker:
         self.load_frame_ids()
         self.load_labels()
 
+        # self.def_labels = [
+        # "Car","Pedestrian","Van","Bus","Truck","ScooterRider","Scooter","BicycleRider","Bicycle","Motorcycle","MotorcyleRider","PoliceCar","TourCar","RoadWorker","Child",
+        # "BabyCart","Cart","Cone","FireHydrant","SaftyTriangle","PlatformCart","ConstructionCart","RoadBarrel","TrafficBarrier","LongVehicle","BicycleGroup","ConcreteTruck",
+        # "Tram","Excavator","Animal","TrashCan","ForkLift","Trimotorcycle","FreightTricycle,","Crane","RoadRoller","Bulldozer","DontCare","Misc","Unknown","Unknown1","Unknown2",
+        # "Unknown3","Unknown4","Unknown5",
+        # ]
         self.def_labels = [
-        "Car","Pedestrian","Van","Bus","Truck","ScooterRider","Scooter","BicycleRider","Bicycle","Motorcycle","MotorcyleRider","PoliceCar","TourCar","RoadWorker","Child",
-        "BabyCart","Cart","Cone","FireHydrant","SaftyTriangle","PlatformCart","ConstructionCart","RoadBarrel","TrafficBarrier","LongVehicle","BicycleGroup","ConcreteTruck",
-        "Tram","Excavator","Animal","TrashCan","ForkLift","Trimotorcycle","FreightTricycle,","Crane","RoadRoller","Bulldozer","DontCare","Misc","Unknown","Unknown1","Unknown2",
-        "Unknown3","Unknown4","Unknown5",
+          "Passenger_Vehicle","Vehicle_Other","VRU_Child","VRU_Adult","VRU_Adult_Using_Moterized_Bicycle",
+          "VRU_Adult_Using_Manual_Wheelchair","VRU_Adult_Using_Moterized_Wheelchair","VRU_Adult_Using_Cane",
+          "VRU_Adult_Using_Stroller","VRU_Adult_Using_Walker","VRU_Adult_Using_Manual_Bicycle",
+          "VRU_Adult_Using_Electric_Scooter","VRU_Adult_Using_Manual_Scooter","VRU_Adult_Using_Skateboard",
+          "VRU_Adult_Using_Crutches","VRU_Adult_Using_Cardboard_Box","VRU_Adult_Using_Umbrella","VRU_Other",
+          "Traffic_Signal_Pole","Car","Pedestrian","Tree","Unknown",
         ]
-
         self.messages = []
     
     def clear_messages(self):

@@ -5,71 +5,108 @@ class ObjectCategory
 
 
     obj_type_map = {
-        Car:            {color: '#86af49',  size:[4.5, 1.8, 1.5], attr:["door open", "trunk open"]},
-        Pedestrian:     {color: '#ff0000',  size:[0.4, 0.5, 1.7], attr:["umbrella", "sitting", "squating", "bending over", "luggage"]},
-        Van:            {color: '#00ff00',  size:[4.5, 1.8, 1.5], attr:["door open", "trunk open"]},
-        Bus:            {color: '#ffff00',  size:[13, 3, 3.5]},
-        Truck:          {color: '#00ffff',  size:[10., 2.8, 3]},
-        
-        ScooterRider:   {color: '#ff8800',  size:[1.6, 0.6, 1.6], attr:["umbrella", "1 passenger", "2 passengers", "3 passengers"]},
-        Scooter:        {color: '#aaaa00',  size:[1.6, 0.6, 1.0]},
+        // Passenger_Vehicle: {color: '#86af49',  size:[4.5, 1.8, 1.5]},
+        // Vehicle_Other:  {color: '#00ff00',  size:[4.5, 1.8, 1.5]},
+        // VRU_Child:      {color: '#ff0000',  size:[0.4, 0.5, 1.3], attr:["dummy"]},
+        // VRU_Adult:      {color: '#ff0000',  size:[0.4, 0.5, 1.75], attr:["dummy"]},
+        // VRU_Adult_Using_Moterized_Bicycle:      {color: '#ff8800',  size:[0.4, 0.7, 1.6], attr:["dummy"]},
+        // VRU_Adult_Using_Manual_Wheelchair:      {color: '#ff0000',  size:[0.4, 0.7, 1.2], attr:["dummy"]},
+        // VRU_Adult_Using_Moterized_Wheelchair:   {color: '#ff8800',  size:[0.4, 0.7, 1.2], attr:["dummy"]},
+        // VRU_Adult_Using_Cane:   {color: '#00aaff',  size:[0.4, 0.7, 1.2], attr:["dummy"]},
+        // VRU_Adult_Using_Stroller:   {color: '#86af49',  size:[0.4, 0.7, 1.2], attr:["dummy"]},
+        // VRU_Adult_Using_Walker:   {color: '#ff0000',  size:[0.4, 0.7, 1.2], attr:["dummy"]},
+        // VRU_Adult_Using_Manual_Bicycle:   {color: '#ffff00',  size:[0.4, 0.7, 1.2], attr:["dummy"]},
+        // VRU_Adult_Using_Electric_Scooter:   {color: '#aaaa00',  size:[0.4, 0.7, 1.2], attr:["dummy"]},
+        // VRU_Adult_Using_Manual_Scooter:   {color: '#00ffff',  size:[0.4, 0.7, 1.2], attr:["dummy"]},
+        // VRU_Adult_Using_Skateboard:   {color: '#00ffff',  size:[0.4, 0.7, 1.2], attr:["dummy"]},
+        // VRU_Adult_Using_Crutches:   {color: '#00ffff',  size:[0.4, 0.7, 1.2], attr:["dummy"]},
+        // VRU_Adult_Using_Cardboard_Box:   {color: '#00ffff',  size:[0.4, 0.7, 1.2], attr:["dummy"]},
+        // VRU_Adult_Using_Umbrella:   {color: '#00ffff',  size:[0.4, 0.7, 1.2], attr:["dummy"]},
+        // VRU_Other:   {color: '#00ffff',  size:[0.4, 0.7, 1.2], attr:["dummy"]},
+        // Traffic_Signal_Pole:          {color: '#00ffff',  size:[10., 2.8, 3]},
+        // Car:            {color: '#86af49',  size:[4.5, 1.8, 1.5], attr:["door open", "trunk open"]},
+        // Pedestrian:     {color: '#ff0000',  size:[0.4, 0.5, 1.7], attr:["umbrella", "sitting", "squating", "bending over", "luggage"]},
+        // Tree:            {color: '#ffff00',  size:[13, 3, 3.5]},
+
+        Passenger_Vehicle: {color: '#00cc00',  size:[4.5, 1.8, 1.5]},  // Dark green
+        Vehicle_Other:  {color: '#009900',  size:[4.5, 1.8, 1.5]},     // Green
+        VRU_Child:      {color: '#ff0000',  size:[0.4, 0.5, 1.3], attr:["dummy"]},  // Bright red
+        VRU_Adult:      {color: '#ff4500',  size:[0.4, 0.5, 1.75], attr:["dummy"]},  // Orange red
+        VRU_Adult_Using_Moterized_Bicycle:      {color: '#ff8c00',  size:[0.4, 0.7, 1.6], attr:["dummy"]},  // Dark orange
+        VRU_Adult_Using_Manual_Wheelchair:      {color: '#ff6347',  size:[0.4, 0.7, 1.2], attr:["dummy"]},  // Tomato
+        VRU_Adult_Using_Moterized_Wheelchair:   {color: '#ff8c00',  size:[0.4, 0.7, 1.2], attr:["dummy"]},  // Dark orange
+        VRU_Adult_Using_Cane:   {color: '#ffa07a',  size:[0.4, 0.7, 1.2], attr:["dummy"]},  // Light salmon
+        VRU_Adult_Using_Stroller:   {color: '#ffd700',  size:[0.4, 0.7, 1.2], attr:["dummy"]},  // Gold
+        VRU_Adult_Using_Walker:   {color: '#ff4500',  size:[0.4, 0.7, 1.2], attr:["dummy"]},  // Orange red
+        VRU_Adult_Using_Manual_Bicycle:   {color: '#ffa500',  size:[0.4, 0.7, 1.2], attr:["dummy"]},  // Orange
+        VRU_Adult_Using_Electric_Scooter:   {color: '#ffcc00',  size:[0.4, 0.7, 1.2], attr:["dummy"]},  // Dark yellow
+        VRU_Adult_Using_Manual_Scooter:   {color: '#00ffff',  size:[0.4, 0.7, 1.2], attr:["dummy"]},  // Cyan
+        VRU_Adult_Using_Skateboard:   {color: '#00bfff',  size:[0.4, 0.7, 1.2], attr:["dummy"]},  // Deep sky blue
+        VRU_Adult_Using_Crutches:   {color: '#1e90ff',  size:[0.4, 0.7, 1.2], attr:["dummy"]},  // Dodger blue
+        VRU_Adult_Using_Cardboard_Box:   {color: '#87ceeb',  size:[0.4, 0.7, 1.2], attr:["dummy"]},  // Sky blue
+        VRU_Adult_Using_Umbrella:   {color: '#4682b4',  size:[0.4, 0.7, 1.2], attr:["dummy"]},  // Steel blue
+        VRU_Other:   {color: '#ffff00',  size:[0.4, 0.7, 1.2], attr:["dummy"]},  // Yellow
+        Traffic_Signal_Pole:          {color: '#0000ff',  size:[10., 2.8, 3]},  // Pure blue
+        Car:            {color: '#0000cd',  size:[4.5, 1.8, 1.5], attr:["door open", "trunk open"]},  // Medium blue
+        Pedestrian:     {color: '#ff0000',  size:[0.4, 0.5, 1.7], attr:["umbrella", "sitting", "squating", "bending over", "luggage"]},  // Bright red
+        Tree:            {color: '#000080',  size:[13, 3, 3.5]},  // Navy blue
 
         
-        BicycleRider:   {color: '#88ff00',  size:[1.6, 0.6, 1.7], attr:["umbrella", "1 passenger", "2 passengers", "3 passengers"]},
-        Bicycle:        {color: '#ff8800',  size:[1.6, 0.6, 1.2], attr:["laying down"]},
-
-
-        Motorcycle:     {color: '#aaaa00',  size:[1.6, 0.6, 1.2], attr:["umbrella"]},
-        MotorcyleRider: {color: '#ff8800',  size:[1.6, 0.6, 1.6], attr:["umbrella", "1 passenger", "2 passengers", "3 passengers"]},
+        // ScooterRider:   {color: '#ff8800',  size:[1.6, 0.6, 1.6], attr:["umbrella", "1 passenger", "2 passengers", "3 passengers"]},
+        // Scooter:        {color: '#aaaa00',  size:[1.6, 0.6, 1.0]},
+        // BicycleRider:   {color: '#88ff00',  size:[1.6, 0.6, 1.7], attr:["umbrella", "1 passenger", "2 passengers", "3 passengers"]},
+        // Bicycle:        {color: '#ff8800',  size:[1.6, 0.6, 1.2], attr:["laying down"]},
+        // Motorcycle:     {color: '#aaaa00',  size:[1.6, 0.6, 1.2], attr:["umbrella"]},
+        // MotorcyleRider: {color: '#ff8800',  size:[1.6, 0.6, 1.6], attr:["umbrella", "1 passenger", "2 passengers", "3 passengers"]},
 
         
 
-        PoliceCar:      {color: '#86af49',  size:[4.5, 1.8, 1.5]},
-        TourCar:        {color: '#86af49',  size:[4.4, 1.5, 2.2]},
+        // PoliceCar:      {color: '#86af49',  size:[4.5, 1.8, 1.5]},
+        // TourCar:        {color: '#86af49',  size:[4.4, 1.5, 2.2]},
 
-        RoadWorker:     {color: '#ff0000',  size:[0.4, 0.5, 1.7]},
-        Child:          {color: '#ff0000',  size:[0.4, 0.5, 1.2]},
+        // RoadWorker:     {color: '#ff0000',  size:[0.4, 0.5, 1.7]},
+        // Child:          {color: '#ff0000',  size:[0.4, 0.5, 1.2]},
 
         //Crowd:          {color: '#ff0000',  size:[1.6, 0.6, 1.2]},
 
-        BabyCart:       {color: '#ff0000',  size:[0.8, 0.5, 1.0]},
-        Cart:           {color: '#ff0000',  size:[0.8, 0.5, 1.0]},
-        Cone:           {color: '#ff0000',  size:[0.3, 0.3, 0.6]},
-        FireHydrant:    {color: '#ff0000',  size:[0.4, 0.4, 0.6]},
-        SaftyTriangle:  {color: '#ff0000',  size:[0.3, 0.4, 0.4]},
-        PlatformCart:   {color: '#ff0000',  size:[1.2, 0.8, 1.0]},
-        ConstructionCart: {color: '#ff0000',  size:[1.2, 0.8, 1.0]},
-        RoadBarrel:     {color: '#ff0000',  size:[0.5, 0.5, 0.6]},
-        TrafficBarrier: {color: '#ff0000',  size:[1.5, 0.3, 1.2]},
-        LongVehicle:    {color: '#ff0000',  size:[16, 3, 3]},
+        // BabyCart:       {color: '#ff0000',  size:[0.8, 0.5, 1.0]},
+        // Cart:           {color: '#ff0000',  size:[0.8, 0.5, 1.0]},
+        // Cone:           {color: '#ff0000',  size:[0.3, 0.3, 0.6]},
+        // FireHydrant:    {color: '#ff0000',  size:[0.4, 0.4, 0.6]},
+        // SaftyTriangle:  {color: '#ff0000',  size:[0.3, 0.4, 0.4]},
+        // PlatformCart:   {color: '#ff0000',  size:[1.2, 0.8, 1.0]},
+        // ConstructionCart: {color: '#ff0000',  size:[1.2, 0.8, 1.0]},
+        // RoadBarrel:     {color: '#ff0000',  size:[0.5, 0.5, 0.6]},
+        // TrafficBarrier: {color: '#ff0000',  size:[1.5, 0.3, 1.2]},
+        // LongVehicle:    {color: '#ff0000',  size:[16, 3, 3]},
 
         
-        BicycleGroup:   {color: '#ff0000',  size:[1.6, 0.6, 1.2]},
+        // BicycleGroup:   {color: '#ff0000',  size:[1.6, 0.6, 1.2]},
         
 
-        ConcreteTruck:  {color: '#00ffff',  size:[10., 2.8, 3]},
-        Tram:           {color: '#00ffff',  size:[10., 2.8, 3]},
-        Excavator:      {color: '#00ffff',  size:[6., 3, 3]},
+        // ConcreteTruck:  {color: '#00ffff',  size:[10., 2.8, 3]},
+        // Tram:           {color: '#00ffff',  size:[10., 2.8, 3]},
+        // Excavator:      {color: '#00ffff',  size:[6., 3, 3]},
 
-        Animal:         {color: '#00aaff',  size:[1.6, 0.6, 1.2]},
+        // Animal:         {color: '#00aaff',  size:[1.6, 0.6, 1.2]},
 
-        TrashCan:         {color: '#00aaff',  size:[0.6, 0.4, 1.0]},
+        // TrashCan:         {color: '#00aaff',  size:[0.6, 0.4, 1.0]},
 
-        ForkLift:       {color: '#00aaff',  size:[5.0, 1.2, 2.0]},
-        Trimotorcycle:  {color: '#00aaff',  size:[2.6, 1.0, 1.6]},
-        FreightTricycle: {color: '#00aaff',  size:[2.6, 1.0, 1.6]},
-        Crane:          {color: '#00aaff',  size:[5.0, 1.2, 2.0]},
-        RoadRoller:     {color: '#00aaff',  size:[2.7, 1.5, 2.0]},
-        Bulldozer:      {color: '#00aaff',  size:[3.0, 2.0, 2.0]},
+        // ForkLift:       {color: '#00aaff',  size:[5.0, 1.2, 2.0]},
+        // Trimotorcycle:  {color: '#00aaff',  size:[2.6, 1.0, 1.6]},
+        // FreightTricycle: {color: '#00aaff',  size:[2.6, 1.0, 1.6]},
+        // Crane:          {color: '#00aaff',  size:[5.0, 1.2, 2.0]},
+        // RoadRoller:     {color: '#00aaff',  size:[2.7, 1.5, 2.0]},
+        // Bulldozer:      {color: '#00aaff',  size:[3.0, 2.0, 2.0]},
 
-        DontCare:       {color: '#00ff88',  size:[4, 4, 3]},
+        // DontCare:       {color: '#00ff88',  size:[4, 4, 3]},
         Misc:           {color: '#008888',  size:[4.5, 1.8, 1.5]},
         Unknown:        {color: '#008888',  size:[4.5, 1.8, 1.5]},
-        Unknown1:       {color: '#008888',  size:[4.5, 1.8, 1.5]},
-        Unknown2:       {color: '#008888',  size:[4.5, 1.8, 1.5]},
-        Unknown3:       {color: '#008888',  size:[4.5, 1.8, 1.5]},
-        Unknown4:       {color: '#008888',  size:[4.5, 1.8, 1.5]},
-        Unknown5:       {color: '#008888',  size:[4.5, 1.8, 1.5]},
+        // Unknown1:       {color: '#008888',  size:[4.5, 1.8, 1.5]},
+        // Unknown2:       {color: '#008888',  size:[4.5, 1.8, 1.5]},
+        // Unknown3:       {color: '#008888',  size:[4.5, 1.8, 1.5]},
+        // Unknown4:       {color: '#008888',  size:[4.5, 1.8, 1.5]},
+        // Unknown5:       {color: '#008888',  size:[4.5, 1.8, 1.5]},
     };
 
 
@@ -77,7 +114,7 @@ class ObjectCategory
         
     }
 
-    popularCategories = ["Car", "Pedestrian", "Van", "Bus", "Truck", "Scooter", "ScooterRider", "Bicycle", "BicycleRider"];
+    popularCategories = ["Passenger_Vehicle","Vehicle_Other", "Pedestrian", "Van", "Bus", "Truck", "Scooter", "ScooterRider", "Bicycle", "BicycleRider"];
 
     guess_obj_type_by_dimension(scale){
 

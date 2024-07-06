@@ -66,6 +66,7 @@ intrinsic_matrix  = np.reshape(intrinsic, [3,3])
 
 
 obj_color_map = {
+    "Passenger_Vehicle": (0  ,255,0  ),#'#00ff00',
     "Car":            (0  ,255,0  ),#'#00ff00',
     "Van":            (0  ,255,0  ),#'#00ff00',
     "Bus":            (0  ,255,255),#'#ffff00', 
