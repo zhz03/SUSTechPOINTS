@@ -17,8 +17,8 @@ class LabelChecker:
         # "Unknown3","Unknown4","Unknown5",
         # ]
         self.def_labels = [
-          "Passenger_Vehicle","Vehicle_Other","VRU_Child","VRU_Adult","VRU_Adult_Using_Moterized_Bicycle",
-          "VRU_Adult_Using_Manual_Wheelchair","VRU_Adult_Using_Moterized_Wheelchair","VRU_Adult_Using_Cane",
+          "Passenger_Vehicle","Vehicle_Other","VRU_Child","VRU_Adult","VRU_Adult_Using_Motorized_Bicycle",
+          "VRU_Adult_Using_Manual_Wheelchair","VRU_Adult_Using_Motorized_Wheelchair","VRU_Adult_Using_Cane",
           "VRU_Adult_Using_Stroller","VRU_Adult_Using_Walker","VRU_Adult_Using_Manual_Bicycle",
           "VRU_Adult_Using_Electric_Scooter","VRU_Adult_Using_Manual_Scooter","VRU_Adult_Using_Skateboard",
           "VRU_Adult_Using_Crutches","VRU_Adult_Using_Cardboard_Box","VRU_Adult_Using_Umbrella","VRU_Other",

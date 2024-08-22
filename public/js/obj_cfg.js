@@ -32,9 +32,9 @@ class ObjectCategory
         Vehicle_Other:  {color: '#009900',  size:[4.5, 1.8, 1.5]},     // Green
         VRU_Child:      {color: '#ff0000',  size:[0.4, 0.5, 1.3], attr:["dummy"]},  // Bright red
         VRU_Adult:      {color: '#ff4500',  size:[0.4, 0.5, 1.75], attr:["dummy"]},  // Orange red
-        VRU_Adult_Using_Moterized_Bicycle:      {color: '#ff8c00',  size:[0.4, 0.7, 1.6], attr:["dummy"]},  // Dark orange
+        VRU_Adult_Using_Motorized_Bicycle:      {color: '#ff8c00',  size:[0.4, 0.7, 1.6], attr:["dummy"]},  // Dark orange
         VRU_Adult_Using_Manual_Wheelchair:      {color: '#ff6347',  size:[0.4, 0.7, 1.2], attr:["dummy"]},  // Tomato
-        VRU_Adult_Using_Moterized_Wheelchair:   {color: '#ff8c00',  size:[0.4, 0.7, 1.2], attr:["dummy"]},  // Dark orange
+        VRU_Adult_Using_Motorized_Wheelchair:   {color: '#ff8c00',  size:[0.4, 0.7, 1.2], attr:["dummy"]},  // Dark orange
         VRU_Adult_Using_Cane:   {color: '#ffa07a',  size:[0.4, 0.7, 1.2], attr:["dummy"]},  // Light salmon
         VRU_Adult_Using_Stroller:   {color: '#ffd700',  size:[0.4, 0.7, 1.2], attr:["dummy"]},  // Gold
         VRU_Adult_Using_Walker:   {color: '#ff4500',  size:[0.4, 0.7, 1.2], attr:["dummy"]},  // Orange red
