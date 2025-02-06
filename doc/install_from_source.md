@@ -7,6 +7,11 @@
    ```
 1. Install packages
      ```
+     # create a new conda environment, the python version suggest to be 3.7 or 3.8
+     conda create --name sustech python=3.8
+     # or use python=3.7
+     conda create --name sustech python=3.7
+     # in the root directory of repo, run the following command to install packages
      pip install -r requirement.txt
      ```
 2. Download model
@@ -15,8 +20,12 @@
      ```
      wget https://github.com/naurril/SUSTechPOINTS/releases/download/0.1/deep_annotation_inference.h5  -P algos/models
      ```
+     
+     - In windows, you can copy the link (https://github.com/naurril/SUSTechPOINTS/releases/download/0.1/deep_annotation_inference.h5) to browser and manually download it to local.
+     - After the download is done, copy the h5 file to the `./algos/models` folder. 
 
 ### Start
+
 Run the following command in shell, then go to http://127.0.0.1:8081
 ```
 python main.py
